@@ -36,24 +36,17 @@ const STUDIO_CONFIG = {
 
 const STUDIO_IMAGES = {
   home: "https://www.yogacirclestudio.com/wp-content/uploads/2018/09/header_5429.jpg",
-  classes: "https://www.yogacirclestudio.com/wp-content/uploads/2026/04/Image-4-4-26-at-1.37-PM.jpeg",
-  schedule: "https://www.yogacirclestudio.com/wp-content/uploads/2026/04/Image-4-4-26-at-1.45-PM.jpeg",
-  practice: "https://www.yogacirclestudio.com/wp-content/uploads/2026/04/Image-4-4-26-at-2.09-PM.jpeg",
-  community: "https://www.yogacirclestudio.com/wp-content/uploads/2025/12/Image-12-4-25-at-4.53-PM-1024x768.jpeg",
-  teachers: "https://www.yogacirclestudio.com/wp-content/uploads/2026/04/Image-4-4-26-at-1.56-PM.jpeg",
-  events: "https://www.yogacirclestudio.com/wp-content/uploads/2026/01/c01fb1d0-6a1f-43c8-85b1-f1c74e24e776_4032x3024-1024x768.webp",
-  membership: "https://www.yogacirclestudio.com/wp-content/uploads/2026/01/Image-1-6-26-at-9.42-AM-1024x965.jpeg",
 };
 
 const GRADIENTS = {
-  home: `linear-gradient(135deg, hsl(190,42%,24%) 0%, hsl(195,22%,12%) 100%)`,
-  classes: `linear-gradient(135deg, hsl(35,45%,26%) 0%, hsl(190,30%,18%) 100%)`,
-  schedule: `linear-gradient(135deg, hsl(195,24%,22%) 0%, hsl(190,42%,18%) 100%)`,
-  practice: `linear-gradient(135deg, hsl(190,35%,26%) 0%, hsl(195,22%,14%) 100%)`,
-  community: `linear-gradient(135deg, hsl(15,50%,28%) 0%, hsl(195,22%,14%) 100%)`,
-  teachers: `linear-gradient(135deg, hsl(190,42%,28%) 0%, hsl(35,22%,18%) 100%)`,
-  events: `linear-gradient(135deg, hsl(35,45%,24%) 0%, hsl(190,25%,16%) 100%)`,
-  membership: `linear-gradient(135deg, hsl(190,42%,22%) 0%, hsl(15,28%,18%) 100%)`,
+  home: `linear-gradient(135deg, hsl(190,42%,28%) 0%, hsl(195,22%,14%) 100%)`,
+  classes: `linear-gradient(160deg, hsl(200,38%,32%) 0%, hsl(190,36%,18%) 100%)`,
+  schedule: `linear-gradient(150deg, hsl(185,34%,30%) 0%, hsl(200,28%,16%) 100%)`,
+  practice: `linear-gradient(135deg, hsl(195,32%,32%) 0%, hsl(205,24%,16%) 100%)`,
+  community: `linear-gradient(150deg, hsl(30,34%,32%) 0%, hsl(190,28%,18%) 100%)`,
+  teachers: `linear-gradient(160deg, hsl(190,40%,30%) 0%, hsl(210,24%,18%) 100%)`,
+  events: `linear-gradient(135deg, hsl(35,40%,30%) 0%, hsl(190,30%,18%) 100%)`,
+  membership: `linear-gradient(150deg, hsl(200,36%,28%) 0%, hsl(30,24%,22%) 100%)`,
 };
 
 const THEME = {
