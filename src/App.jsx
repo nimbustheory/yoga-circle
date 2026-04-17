@@ -19,8 +19,8 @@ const STUDIO_CONFIG = {
   tagline: "Calm the fluctuations of the mind.",
   logoMark: "Y",
   description: "Classical yoga in historic Snohomish. Unite body, mind, spirit.",
-  heroLine1: "UNITE.",
-  heroLine2: "CIRCLE.",
+  heroLine1: "CIRCLE.",
+  heroLine2: "UNITE.",
   address: { street: "707 Pine Ave, Ste A103", city: "Snohomish", state: "WA", zip: "98290" },
   phone: "(360) 568-1000",
   email: "Karen@KarenGuzak.com",
@@ -36,6 +36,13 @@ const STUDIO_CONFIG = {
 
 const STUDIO_IMAGES = {
   home: "https://www.yogacirclestudio.com/wp-content/uploads/2018/09/header_5429.jpg",
+  classes: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?w=1200&q=80",
+  schedule: "https://images.unsplash.com/photo-1599447421416-3414500d18a5?w=1200&q=80",
+  practice: "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=1200&q=80",
+  community: "https://images.unsplash.com/photo-1588286840104-8957b019727f?w=1200&q=80",
+  teachers: "https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?w=1200&q=80",
+  events: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=1200&q=80",
+  membership: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80",
 };
 
 const GRADIENTS = {
