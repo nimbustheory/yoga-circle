@@ -1,13 +1,32 @@
 import { useState } from "react";
 import {
-  Calendar, TrendingUp, Users, Heart, Sparkles, Layers,
-  Bell, Headphones, ChevronRight, Monitor, Smartphone, Star, Shield, Zap
+  Calendar, TrendingUp, Users, Heart, Sparkles, Layers, CreditCard,
+  Bell, Headphones, ChevronRight, Monitor, Smartphone, Shield, Zap,
+  CalendarDays, MapPin, BookOpen, Activity
 } from "lucide-react";
 import App from "./App.jsx";
 import { DEMO_CONFIG } from "./demo.config.js";
 
-const iconMap = { Sparkles, Layers, Heart, Shield, Star, Zap, Calendar, TrendingUp, Users, Bell, Headphones, Monitor, Smartphone };
-const getIcon = (name) => iconMap[name] || Star;
+const iconMap = {
+  Sparkles, Layers, Heart, Shield, Zap, Calendar, TrendingUp, Users, Bell,
+  Headphones, Monitor, Smartphone, CreditCard, CalendarDays, MapPin, BookOpen, Activity
+};
+const getIcon = (name) => iconMap[name] || Sparkles;
+
+const featureIconFor = (label) => {
+  const k = (label || "").toLowerCase();
+  if (k.includes("schedul")) return Calendar;
+  if (k.includes("practice") || k.includes("track")) return Activity;
+  if (k.includes("communit")) return Heart;
+  if (k.includes("teacher")) return Users;
+  if (k.includes("member")) return CreditCard;
+  if (k.includes("event") || k.includes("workshop")) return CalendarDays;
+  if (k.includes("notif")) return Bell;
+  if (k.includes("admin") || k.includes("dashboard")) return Shield;
+  if (k.includes("locat")) return MapPin;
+  if (k.includes("video") || k.includes("library")) return BookOpen;
+  return Sparkles;
+};
 
 export default function DemoWrapper() {
   const c = DEMO_CONFIG;
@@ -23,45 +42,53 @@ export default function DemoWrapper() {
     <div style={{ display: "flex", minHeight: "100vh", background: "#f5f5f5", fontFamily: "'Outfit', system-ui, sans-serif", color: "#1a1a1a" }}>
 
       {/* --- LEFT SIDEBAR --- */}
-      <aside style={{ width: 320, flexShrink: 0, background: "#fff", borderRight: "1px solid #e5e7eb", display: "flex", flexDirection: "column", position: "fixed", top: 0, left: 0, bottom: 0, zIndex: 10, overflowY: "auto", scrollbarWidth: "none", msOverflowStyle: "none" }}>
-        {/* Prototype Label */}
-        <div style={{ padding: "16px 24px 0" }}>
-          <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: accent, background: `${accent}12`, padding: "4px 10px", borderRadius: 4 }}>Prototype Demo</span>
-        </div>
+      <aside style={{ width: 320, flexShrink: 0, background: "#fff", borderRight: "1px solid #e5e7eb", display: "flex", flexDirection: "column", height: "100vh", overflow: "hidden", position: "fixed", top: 0, left: 0, zIndex: 10 }}>
 
-        {/* Studio Identity */}
-        <div style={{ padding: "20px 24px 16px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <div style={{ width: 44, height: 44, borderRadius: 12, background: accent, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Gelasio', serif", fontSize: 22, fontWeight: 700, color: "#fff" }}>
-              {c.studio.logo}
-            </div>
-            <div>
-              <div style={{ fontFamily: "'Gelasio', serif", fontSize: 18, fontWeight: 600, letterSpacing: "0.02em", color: "#111827" }}>{c.studio.name}</div>
-              <div style={{ fontSize: 11, color: "#6b7280", marginTop: 1 }}>{c.studio.tagline}</div>
-            </div>
+        {/* Scrollable inner column (everything above the sticky footer) */}
+        <div style={{ flex: 1, overflowY: "auto", scrollbarWidth: "none", msOverflowStyle: "none", display: "flex", flexDirection: "column" }} className="lumi-scroll">
+
+          {/* Prototype Label */}
+          <div style={{ padding: "16px 24px 0" }}>
+            <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: accent, background: `${accent}12`, padding: "4px 10px", borderRadius: 4 }}>Prototype Demo</span>
           </div>
-        </div>
 
-        {/* Feature List */}
-        <div style={{ padding: "0 24px", flex: 1 }}>
-          <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#9ca3af", marginBottom: 12 }}>App Features</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-            {c.features.map((f, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "8px 10px", borderRadius: 8, background: "#f9fafb" }}>
-                <div style={{ width: 28, height: 28, borderRadius: 6, background: `${accent}12`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>
-                  <Star size={14} color={accent} />
-                </div>
-                <div>
-                  <div style={{ fontSize: 13, fontWeight: 600, color: "#374151" }}>{f.label}</div>
-                  <div style={{ fontSize: 11, color: "#9ca3af", marginTop: 1, lineHeight: 1.3 }}>{f.description}</div>
-                </div>
+          {/* Studio Identity */}
+          <div style={{ padding: "20px 24px 16px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <div style={{ width: 44, height: 44, borderRadius: "50%", background: accent, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Gelasio', serif", fontSize: 22, fontWeight: 700, color: "#fff" }}>
+                {c.studio.logo}
               </div>
-            ))}
+              <div>
+                <div style={{ fontFamily: "'Gelasio', serif", fontSize: 18, fontWeight: 600, letterSpacing: "0.02em", color: "#111827" }}>{c.studio.name}</div>
+                <div style={{ fontSize: 11, color: "#6b7280", marginTop: 1 }}>{c.studio.tagline}</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature List */}
+          <div style={{ padding: "0 24px 16px", flex: 1 }}>
+            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "#9ca3af", marginBottom: 12 }}>App Features</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+              {c.features.map((f, i) => {
+                const Icon = f.icon ? (iconMap[f.icon] || featureIconFor(f.label)) : featureIconFor(f.label);
+                return (
+                  <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: "12px 12px", borderRadius: 8, background: "#f9fafb" }}>
+                    <div style={{ width: 32, height: 32, borderRadius: 8, background: `${accent}14`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 1 }}>
+                      <Icon size={16} color={accent} />
+                    </div>
+                    <div>
+                      <div style={{ fontSize: 14, fontWeight: 600, color: "#374151", lineHeight: 1.2 }}>{f.label}</div>
+                      <div style={{ fontSize: 12, color: "#9ca3af", marginTop: 3, lineHeight: 1.35 }}>{f.description}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
 
-        {/* Footer */}
-        <div style={{ padding: "16px 24px 20px", borderTop: "1px solid #e5e7eb" }}>
+        {/* Sticky Footer */}
+        <div style={{ position: "sticky", bottom: 0, padding: "16px 24px", background: "#fff", borderTop: "1px solid #eee", zIndex: 10 }}>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "#9ca3af", textAlign: "center" }}>
             Built by <span style={{ color: accent }}>LUMI</span> — LumiClass.App
           </div>
@@ -77,7 +104,7 @@ export default function DemoWrapper() {
           }}>
             <div style={{ width: 120, height: 6, background: "#2a2a34", borderRadius: 3, margin: "0 auto 8px" }} />
             <div style={{
-              width: 390, height: 844, borderRadius: 28, overflow: "hidden", background: "white",
+              width: 390, height: 720, borderRadius: 28, overflow: "hidden", background: "white",
               position: "relative"
             }}>
               <App onEnterAdmin={() => setIsFullAdmin(true)} />
@@ -91,13 +118,13 @@ export default function DemoWrapper() {
       <aside style={{ width: 340, flexShrink: 0, background: "#fff", borderLeft: "1px solid #e5e7eb", position: "fixed", top: 0, right: 0, bottom: 0, overflowY: "auto", padding: "24px 20px", scrollbarWidth: "none", msOverflowStyle: "none" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {c.salesCards.map((card, i) => {
-            const IconComp = card.icon === "Shield" ? Shield : getIcon(card.icon);
+            const IconComp = getIcon(card.icon);
             const isAdminCard = card.title === "Admin Dashboard";
             return (
               <div key={i} style={{ background: "#fff", border: "1px solid #e5e7eb", borderRadius: 14, padding: "18px 16px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
                   <div style={{ width: 36, height: 36, borderRadius: 10, background: `${accent}12`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    {isAdminCard ? <Shield size={18} color={accent} /> : <IconComp size={18} color={accent} />}
+                    <IconComp size={18} color={accent} />
                   </div>
                   <h3 style={{ fontFamily: "'Gelasio', serif", fontSize: 18, fontWeight: 600, color: "#111827", margin: 0 }}>{card.title}</h3>
                 </div>
@@ -133,6 +160,7 @@ export default function DemoWrapper() {
           main { margin-left: 0 !important; margin-right: 0 !important; }
         }
         aside::-webkit-scrollbar { display: none; }
+        .lumi-scroll::-webkit-scrollbar { display: none; }
       `}</style>
     </div>
   );

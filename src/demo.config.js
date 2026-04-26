@@ -1,20 +1,20 @@
 export const DEMO_CONFIG = {
   studio: {
-    name: "YOGA CIRCLE STUDIO",
+    name: "Yoga Circle Studio",
     tagline: "Classical Yoga — Historic Snohomish, WA",
     logo: "Y",
   },
   accent: "#388898",
   accentDark: "#207080",
   features: [
-    { label: "Class Scheduling", description: "Flow, Gentle, Early Morning, Yoga Therapy" },
-    { label: "Practice Tracking", description: "Streaks, reflections, and milestones" },
-    { label: "Community Feed", description: "Calm the fluctuations of the mind" },
-    { label: "Teacher Profiles", description: "5 teachers carrying the torch of wisdom" },
-    { label: "Membership Tiers", description: "Drop-in, class packs, annual, video library" },
-    { label: "Events & Workshops", description: "Sunday workshops, meditation, beginner series" },
-    { label: "Smart Notifications", description: "Class reminders and workshop alerts" },
-    { label: "Admin Dashboard", description: "Full CRM, analytics, and broadcast tools" },
+    { label: "Class Scheduling", description: "Flow, Gentle, Early Morning, Yoga Therapy", icon: "Calendar" },
+    { label: "Practice Tracking", description: "Streaks, reflections, and milestones", icon: "Activity" },
+    { label: "Community Feed", description: "Calm the fluctuations of the mind", icon: "Heart" },
+    { label: "Teacher Profiles", description: "5 teachers carrying the torch of wisdom", icon: "Users" },
+    { label: "Membership Tiers", description: "Drop-in, class packs, annual, video library", icon: "CreditCard" },
+    { label: "Events & Workshops", description: "Sunday workshops, meditation, beginner series", icon: "CalendarDays" },
+    { label: "Smart Notifications", description: "Class reminders and workshop alerts", icon: "Bell" },
+    { label: "Admin Dashboard", description: "Full CRM, analytics, and broadcast tools", icon: "Shield" },
   ],
   salesCards: [
     {
@@ -29,8 +29,8 @@ export const DEMO_CONFIG = {
     },
     {
       title: "All-in-One Platform",
-      description: "Handles booking, payments, and member management natively — no third-party software needed. Class packs, annual memberships, video library subscriptions, private sessions, yoga therapy consultations, and beginner series enrollment in one place.",
-      icon: "Layers",
+      description: "Booking, payments, and member management native to one app. Class packs, annual memberships, video library subscriptions, private sessions, yoga therapy consultations, and beginner series enrollment in one place.",
+      icon: "MapPin",
     },
     {
       title: "Member Engagement",

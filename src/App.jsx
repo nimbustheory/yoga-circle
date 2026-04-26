@@ -5,7 +5,7 @@ import {
   ArrowUpRight, ArrowDownRight, Award, DollarSign, LayoutDashboard,
   UserCheck, Megaphone, LogOut, Plus, Edit3, Send, Check, Search, Info,
   CircleCheck, Heart, Flame, Star, Sun, Moon, Wind, Sparkles,
-  Mountain, Leaf, Gift, Share2, MapPin, Trash2,
+  Mountain, Leaf, Gift, Share2, MapPin, Trash2, Filter,
   Headphones, Waves, CircleDot
 } from "lucide-react";
 import {
@@ -224,7 +224,7 @@ function PageHero({ image, gradient, title, subtitle, tall = false }) {
       }} />
       <div style={{ position: "relative", padding: `${padTop}px 20px 22px`, height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "flex-end", color: "#fff" }}>
         <h1 style={{ fontFamily: "'Gelasio', serif", fontSize: headlineSize, fontWeight: 700, lineHeight: 0.98, margin: 0, textShadow: "0 2px 12px rgba(0,0,0,0.35)", letterSpacing: "-0.01em" }}>{title}</h1>
-        {subtitle && <p style={{ maxWidth: "85%", fontSize: 14, lineHeight: 1.4, margin: "12px 0 0", textShadow: "0 1px 6px rgba(0,0,0,0.4)", color: "#f5f5f5" }}>{subtitle}</p>}
+        {subtitle && <p style={{ maxWidth: "90%", fontSize: 14, lineHeight: 1.4, margin: "12px 0 0", textShadow: "0 1px 6px rgba(0,0,0,0.4)", color: "#f5f5f5" }}>{subtitle}</p>}
       </div>
     </div>
   );
@@ -1180,11 +1180,10 @@ function PhoneApp({ onEnterAdmin }) {
     { id: "more", label: "More", icon: Menu },
   ];
   const moreItems = [
-    { id: "classes", label: "Classes", icon: Wind },
+    { id: "classes", label: "Classes", icon: Filter },
     { id: "teachers", label: "Teachers", icon: Users },
-    { id: "events", label: "Events", icon: CalendarDays },
     { id: "membership", label: "Membership", icon: CreditCard },
-    { id: "settings", label: "Settings", icon: Settings },
+    { id: "events", label: "Events", icon: CalendarDays },
   ];
 
   const renderPage = () => {
@@ -1233,8 +1232,7 @@ function PhoneApp({ onEnterAdmin }) {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
                 {moreItems.map(item => {
                   const active = page === item.id;
-                  const handler = item.id === "settings" ? () => { setShowSettings(true); setShowMore(false); } : () => { setPage(item.id); setShowMore(false); };
-                  return <button key={item.id} onClick={handler} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, padding: "14px 8px", borderRadius: 10, border: "none", cursor: "pointer", background: active ? T.accentGhost : T.bgDim, color: active ? T.accent : T.textMuted }}><item.icon size={22} /><span style={{ fontSize: 13, fontWeight: 600 }}>{item.label}</span></button>;
+                  return <button key={item.id} onClick={() => { setPage(item.id); setShowMore(false); }} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6, padding: "16px 8px", borderRadius: 10, border: `1px solid ${T.borderLight}`, cursor: "pointer", background: active ? T.accentGhost : T.bgCard, color: active ? T.accent : T.textMuted }}><item.icon size={24} /><span style={{ fontSize: 13, fontWeight: 600 }}>{item.label}</span></button>;
                 })}
               </div>
             </div>
